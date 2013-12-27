@@ -1,0 +1,18 @@
+{
+	"attributes": [
+		{
+			"type": "string",
+			"code": "label",
+			"required": true
+		},
+		{
+			"type": "number",
+			"disabled": true,
+			"code": "id"
+		},
+		{
+			"type": "number",
+			"code": "size"
+		}
+	]
+}

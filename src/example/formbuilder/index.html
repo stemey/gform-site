@@ -14,7 +14,7 @@
     <script type="text/javascript">
         var dojoConfig = {
             async: true,
-            isDebug: true,
+            isDebug: true
         }
     </script>
     <script type="text/javascript" src="../../../dojo/dojo.js"></script>
@@ -23,15 +23,15 @@
     <script type="text/javascript">
 
         require([
-            '../../schema/transform',
+            'gform/schema/transform',
             'dojo/when',
             'gform/util/Resolver',
             'dojo/aspect',
             "dijit/registry",
             "dojo/parser",
             "gform/util/refresolve",
-            "dojo/text!gform/tests/entity/state_collection.json",
-            "dojo/text!gform/tests/meta/refs.json",
+            "dojo/text!./state_collection.json",
+            "dojo/text!./state_schema.json",
             "dojo/text!gform/schema/group.json",
             "gform/example/gridx/AsyncMemory",
             "gform/opener/SingleEditorDialogOpener",
@@ -58,7 +58,7 @@
                 ctx.opener = opener;
                 //var schema = schemaGenerator.generate(gform.ef.layout);
                 var meta = dojo.fromJson(group);
-                var loc = window.location.pathname + "../../schema/";
+                var loc = window.location.pathname + "../../../gform/schema/";
                 var t = transform;
 
                 var resolver = new Resolver({baseUrl: loc, transformations: t});
