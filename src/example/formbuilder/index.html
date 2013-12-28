@@ -18,11 +18,13 @@
         }
     </script>
     <script type="text/javascript" src="../../../dojo/dojo.js"></script>
+    <script type="text/javascript" src="../../../gform/gform.js"></script>
 
 
     <script type="text/javascript">
 
         require([
+            'dojo/_base/url',
             'gform/schema/transform',
             'dojo/when',
             'gform/util/Resolver',
@@ -33,18 +35,18 @@
             "dojo/text!./state_collection.json",
             "dojo/text!./state_schema.json",
             "dojo/text!gform/schema/group.json",
-            "gform/example/gridx/AsyncMemory",
+            "app/example/gridx/AsyncMemory",
             "gform/opener/SingleEditorDialogOpener",
             "gform/Context",
-            "gform/example/formbuilder/SingleStoreRegistry",
-            "gform/example/formbuilder/SingleSchemaRegistry",
+            "app/example/formbuilder/SingleStoreRegistry",
+            "app/example/formbuilder/SingleSchemaRegistry",
             "gform/registerLayoutEditorFactory",
             "dijit/layout/BorderContainer",
             "dijit/layout/ContentPane",
             "gform/Editor",
             "dijit/form/Button",
             "dijit/Dialog"
-        ], function (transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry) {
+        ], function (url, transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry) {
             parser.parse();
             try {
                 var ctx = new Context();
@@ -58,7 +60,7 @@
                 ctx.opener = opener;
                 //var schema = schemaGenerator.generate(gform.ef.layout);
                 var meta = dojo.fromJson(group);
-                var loc = window.location.pathname + "../../../gform/schema/";
+                var loc = new url(window.location.pathname, "../../../gform/schema/").uri;
                 var t = transform;
 
                 var resolver = new Resolver({baseUrl: loc, transformations: t});

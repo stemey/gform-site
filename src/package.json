@@ -1,0 +1,5 @@
+{
+    "name": "gform-example",
+    "version": "0.1.0",
+    "dojoBuild": "package.js"
+}

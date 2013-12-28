@@ -107,10 +107,10 @@
 					"idProperty": "value",
 					"description": "select a reference",
 					"code": "state",
-					"baseUrl": "/gform/tests/entity/state/",
-					"url": "/gform/tests/entity/state",
-					"collectionUrl": "/gform/tests/entity/state",
-					"schemaUrl": "/gform/tests/meta/refs.json"
+					"baseUrl": "/gform/state/",
+					"url": "/gform/state",
+					"collectionUrl": "/gform/state",
+					"schemaUrl": "/gform/state_schema.json"
 				},
 				{
 					"type": "array",
@@ -120,10 +120,10 @@
 						"type": "ref",
 						"searchProperty": "label",
 						"idProperty": "value",
-						"baseUrl": "/gform/tests/entity/state/",
-						"url": "/gform/tests/entity/state",
-						"collectionUrl": "/gform/tests/entity/state",
-						"schemaUrl": "/gform/tests/meta/refs.json"
+                        "baseUrl": "/gform/state/",
+                        "url": "/gform/state",
+                        "collectionUrl": "/gform/state",
+                        "schemaUrl": "/gform/state_schema.json"
 					}
 				}
 			]

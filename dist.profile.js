@@ -1,10 +1,8 @@
 var profile = {
 
     action: "release",
-
-    optimize: "",
+    optimize: "closure",
     layerOptimize: "closure",
-    //stripConsole: "normal",
     cssOptimize: "comments",
     packages: [
         {

@@ -1,6 +1,7 @@
 define([
-	"dojo/_base/declare"//
-], function (declare) {
+    'dojo/_base/json',
+    "dojo/_base/declare"//
+], function (json, declare) {
 
 	var remove = function (e) {
 		return undefined;
@@ -28,7 +29,7 @@ define([
 			var a = {};
 			a.id = attribute.code;
 			a.description = attribute.description;
-			a.example = dojo.toJson(attribute.example, true);
+			a.example = json.toJson(attribute.example, true);
 			a.props = [];
 			if (attribute.attributes) {
 				a.props = this.transformAttributes(attribute.attributes);

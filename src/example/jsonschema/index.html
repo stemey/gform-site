@@ -16,9 +16,9 @@
 
 	<script type="text/javascript">
 
-		require([ "dojo/ready", "dojo/json", "gform/Editor", "dojo/Stateful", "doh/runner", "gform/createLayoutEditorFactory","dojo/on","gform/list_table/RepeatedEmbeddedAttributeFactory",//
-		"dijit/registry","dijit/layout/BorderContainer","dojo/parser","gform/group/ListPaneGroupFactory","dijit/form/Button","gform/schema/convertSchema","gform/util/refresolve", "dojo/request",  "gform/util/Resolver", "dijit/form/Textarea"
-		], function(ready, json, Editor, Stateful, doh,createEditorFactory,on,RepeatedEmbeddedAttributeFactory,   registry,BorderContainer,parser,ListPaneGroupFactory,Button,convertSchema, refresolve, request, Resolver) {
+		require([ "dojo/ready", "gform/Editor", "gform/createLayoutEditorFactory", //
+		"dijit/registry","dijit/layout/BorderContainer","dojo/parser", "dijit/form/Button","gform/schema/convertSchema","gform/util/refresolve", "dojo/request",  "gform/util/Resolver", "dijit/form/Textarea"
+		], function(ready, Editor, createEditorFactory,registry,BorderContainer,parser,Button,convertSchema, refresolve, request, Resolver) {
 			parser.parse();
 			var ef=createEditorFactory();
 			editor = registry.byId("editor");
@@ -26,7 +26,7 @@
 			var textarea = registry.byId("schemaArea");
 			registry.byId("createButton").set("onClick",function(e) {
 				var schemaString = schemaArea.value;
-				var schema =dojo.fromJson(schemaString);
+				var schema =JSON.parse(schemaString);
 				var promise = refresolve(schema,new Resolver({baseUrl:""}));
 				promise.then(
 					function() {

@@ -20,7 +20,7 @@ define([
     "dijit/layout/BorderContainer",
     "dijit/layout/ContentPane",
     "dijit/Toolbar",
-    'gform/controller/CrudController',
+    'gform/controller/CrudController'
 ], function (declare, lang, aspect, Grid, Cache, VirtualVScroller, RowHeader, RowSelect, Store, tableStructure, tabledata, editorSchema, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, template, Context, createEditorFactory) {
 
 

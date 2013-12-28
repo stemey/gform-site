@@ -7,21 +7,35 @@
 
 	<!-- required: a default dijit theme: -->
 	<link id="themeStyles" rel="stylesheet" href="../../../dijit/themes/claro/claro.css"/>
-	<link id="gformStyles" rel="stylesheet" href="../../resources/gform.css"/>
+	<link id="gformStyles" rel="stylesheet" href="../../../gform/resources/gform.css"/>
 	<link id="multiSelectStyles" rel="stylesheet" href="../../../dojox/form/resources/CheckedMultiSelect.css" />
 
 	<!-- required: dojo.js -->
 	<script type="text/javascript" src="../../../dojo/dojo.js"
 		data-dojo-config="async:true,parseOnLoad: false, isDebug: false"></script>
-	<!-- this is the optimized gform library - not availabe in dev mode -->
-	<!--<script type="text/javascript" src="../../../dojo/gform.js"></script>-->
+
+	<script type="text/javascript" src="../../../gform/gform.js"></script>
 
 
 	<script type="text/javascript">
 
-		require([ "dojo/ready", "dojo/json", "gform/Editor", "dojo/Stateful",  "gform/createLayoutEditorFactory","dojo/on","gform/list_table/RepeatedEmbeddedAttributeFactory",//
-		"dojo/text!./kitchensink_schema.json", "dojo/text!./kitchensink_data.json","dojo/text!../../tests/meta/refs.json","dijit/registry","dijit/layout/BorderContainer","dojo/parser","gform/group/ListPaneGroupFactory","gform/Context", "dojo/text!gform/tests/entity/state_collection.json", "gform/opener/SingleEditorDialogOpener", "gform/example/gridx/AsyncMemory", "dijit/form/Button"//
-		], function(ready, json, Editor, Stateful, createStandardEditorFactory ,on,RepeatedEmbeddedAttributeFactory, meta, entity, refs, registry,BorderContainer,parser,ListPaneGroupFactory, Context, stateCollectionJson, SingleEditorDialogOpener, Store) {
+		require([
+            'dojo/query',
+            "dojo/ready",
+            "gform/Editor",
+            "gform/createLayoutEditorFactory",
+		    "dojo/text!./kitchensink_schema.json",
+            "dojo/text!./kitchensink_data.json",
+            "dojo/text!./state_schema.json",
+            "dijit/registry",
+            "dojo/parser",
+            "gform/Context",
+            "dojo/text!./state_collection.json",
+            "gform/opener/SingleEditorDialogOpener",
+            "app/example/gridx/AsyncMemory",
+            "dijit/form/Button",
+            "dijit/layout/BorderContainer"//
+		], function(query, ready, Editor, createStandardEditorFactory ,meta, entity, refs, registry,parser,Context, stateCollectionJson, SingleEditorDialogOpener, Store) {
 			parser.parse();
 
 			var stateCollection = JSON.parse(stateCollectionJson);
@@ -32,15 +46,15 @@
 			ctx.opener.schemaRegistry = ctx.schemaRegistry;
 			ctx.opener.placeAt("dialog");
 			ctx.opener.startup();
-			var model = dojo.fromJson(entity);
-			ctx.storeRegistry.register("/gform/tests/entity/state", new Store({data:stateCollection, idProperty:"id"}));
-            ctx.schemaRegistry.register("/gform/tests/meta/refs.json", dojo.fromJson(refs));
+			var model = JSON.parse(entity);
+			ctx.storeRegistry.register("/gform/state", new Store({data:stateCollection, idProperty:"id"}));
+            ctx.schemaRegistry.register("/gform/state_schema.json", JSON.parse(refs));
 
 			var editorFactory = createStandardEditorFactory();
 			 editor = new Editor({
                  doLayout:true,
 					editorFactory:editorFactory,
-					"plainValue": dojo.fromJson(entity),
+					"plainValue": JSON.parse(entity),
 					"ctx": ctx,	
 					"meta": dojo.fromJson(meta)});
 			var container = registry.byId("container");
@@ -48,7 +62,7 @@
 			container.addChild(editor);
 			registry.byId("displayButton").set("onClick",function(e) {
 				var plainValue=editor.get("plainValue");
-				dojo.byId("displayArea").innerHTML=dojo.toJson(plainValue,true);
+				query("#displayArea")[0].innerHTML=dojo.toJson(plainValue,true);
 			});
 			editor.updateValue("string","Hello4");
 			editor.updateValue("integer2",6);

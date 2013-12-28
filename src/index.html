@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>gform</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Stefan Meyer">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/my.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+<!-- Static navbar -->
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#features">features</a></li>
+            <li><a href="#examples">examples</a></li>
+            <li><a href="https://github.com/stemey/dojo-generate-form/wiki">wiki</a></li>
+            <li><a href="/schemal">schema doc</a></li>
+            <li><a href="/api/">api doc</a></li>
+            <li><a href="tutorial">tutorial</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>gform</h1>
+        <h2>model driven form creation</h2>
+
+        <p>gform helps you to quickly create complex forms and integrate them with dojo grids into full-blown administrative front-ends.</p>
+        <img src="img/example.png"/>
+    </div>
+</div>
+
+<a name="features"></a>
+<div class="container">
+    <!-- Example row of columns -->
+    <h1>Features</h1>
+    <div class="row">
+        <div class="col-md-4">
+           <h2>Model driven</h2>
+
+            <p>Take your existing model and create an administrative frontend easily. It's as simple as transforming your schema (e.g.: rdbms schema, java type or json schema) into a gform schema.</p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Full schema support</h2>
+
+            <p>Gform supports all primitive types: string, number, boolean, date.
+                It supports maps and arrays of primitives and complex types.
+                Complex types may be polymorphic. This way gform schema can be mapped to languages supporting inheritance.</p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Extendible</h2>
+
+            <p>The schema can be extended. Create new types or add new features to existing schema to widget bindings. If you would like all string properties with a maxLength larger than 200 to be edited in a wysiwyg editor then so be it.</p>
+
+        </div>
+    </div>
+    <div class="row">
+           <div class="col-md-4">
+        <h2>Flexible UI</h2>
+
+        <p>Properties maybe assigned to ui groups to improve the editing workflow. Ui groups include tabs, accordions and multi column layouts. These groups maybe nested.</p>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Validation</h2>
+
+            <p>Gform supports property validation and model validation. Custom validation that validate inter-property-constraints can be added.</p>
+
+        </div>
+    </div>
+    <p></p>
+</div>
+
+<!-- /container -->
+
+<a name="examples"></a>
+<div class="darkblock">
+    <div class="container">
+        <!-- Example row of columns -->
+        <h1>Examples</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Kitchensink</h2>
+
+                <p>This example provides nearly all features in a single form.</p>
+
+                <p><a class="btn btn-default" href="example/kitchensink/index.html" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Master-Detail</h2>
+
+                <p>This example shows how to integrate gform with gridx to create a master detail view.</p>
+
+                <p><a class="btn btn-default" href="example/gridx/index.html" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Formbuilder</h2>
+
+                <p>Interactively explore gform features. The formbuilder is based on a gform schema whose instances are gform schemas.</p>
+
+                <p><a class="btn btn-default" href="example/formbuilder/index.html" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Json schema converter</h2>
+
+                <p>This example allows you to write a json schema and view the resulting form instantly.</p>
+
+                <p><a class="btn btn-default" href="example/jsonschema/index.html" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+        <p></p>
+
+    </div>
+   </div>
+
+</div>
+<!-- /container -->
+
+
+
+
+
+</body>
+</html>
