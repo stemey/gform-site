@@ -24,6 +24,7 @@
     <script type="text/javascript">
 
         require([
+            './SchemaGenerator',
             'dojo/_base/url',
             'gform/schema/transform',
             'dojo/when',
@@ -46,7 +47,7 @@
             "gform/Editor",
             "dijit/form/Button",
             "dijit/Dialog"
-        ], function (url, transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry) {
+        ], function (SchemaGenerator, url, transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry) {
             parser.parse();
             try {
                 var ctx = new Context();
@@ -59,13 +60,17 @@
                 opener.startup();
                 ctx.opener = opener;
                 //var schema = schemaGenerator.generate(gform.ef.layout);
-                var meta = dojo.fromJson(group);
+                //var meta = dojo.fromJson(group);
                 var loc = new url(window.location.pathname, "../../../gform/schema/").uri;
                 var t = transform;
 
-                var resolver = new Resolver({baseUrl: loc, transformations: t});
-                var promise = refresolve(meta, resolver);
-                when(promise).then(function () {
+                var generator = new SchemaGenerator();
+
+                //var resolver = new Resolver({baseUrl: loc, transformations: t});
+                //var promise = refresolve(meta, resolver);
+
+                var promise = generator.loadDefault( loc);
+                when(promise).then(function (meta) {
                     editor = dijit.byId("form");
                     editor.set("meta", meta);
                     editor.setPlainValue({});

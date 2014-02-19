@@ -23,7 +23,14 @@ module.exports = function (grunt) {
                 cwd: 'src/',
                 src: '**',
                 dest: 'build/app/'
+            },
+            all: {
+                expand: true,
+                cwd: 'bower_components/',
+                src: '**',
+                dest: 'build/'
             }
+
 
         },
         deploy: {

@@ -4,6 +4,7 @@ var profile = {
     optimize: "closure",
     layerOptimize: "closure",
     cssOptimize: "comments",
+    mini: true,
     packages: [
         {
             name: "dojo",
