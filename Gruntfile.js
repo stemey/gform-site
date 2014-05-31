@@ -24,6 +24,12 @@ module.exports = function (grunt) {
                 src: '**',
                 dest: 'build/app/'
             },
+            ace: {
+                expand: true,
+                cwd: 'bower_components/ace-builds/',
+                src: '**',
+                dest: 'build/ace-builds/'
+            },
             all: {
                 expand: true,
                 cwd: 'bower_components/',
@@ -60,7 +66,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('dist', ['clean:all', 'dojo']);
+    grunt.registerTask('dist', ['clean:all', 'copy:ace', 'dojo']);
     grunt.registerTask('default', ['copy:app']);
     grunt.registerTask('deploy', ['deploy']);
 

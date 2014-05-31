@@ -20,7 +20,7 @@ var profile = {
         },
         {
             name: "gform",
-            location: "../gform"
+            location: "bower_components/gform"
         },
         {
             name: "gridx",
@@ -38,9 +38,7 @@ var profile = {
             boot: true
         },
         "gform/gform": {
-            include: [ "gform/createLayoutEditorFactory" ],
-            customBase: true,
-            boot: true
+            include: [ "gform/createFullEditorFactory" ]
         },
         "app/example/gridx/index": {
             include: [ "app/example/gridx/GridController" ],

@@ -9,14 +9,14 @@
 	"date": "2013-03-21",
 	"time": "T15:00:00",
 	"state": {
-		"$ref": "/gform/tests/entity/state/2"
+		"$ref": "/gform/state/2"
 	},
 	"states": [
 		{
-			"$ref": "/gform/tests/entity/state/2"
+			"$ref": "/gform/state/2"
 		},
 		{
-			"$ref": "/gform/tests/entity/state/3"
+			"$ref": "/gform/state/3"
 		}
 	],
 	"language": "german",
@@ -84,7 +84,9 @@
 			"message": "OOOOOOOO"
 		}
 	},
-	"primitive_map": {
+    "javascript":"var items = [0,3,5]; \nfor (var key in items) {\n    i++;\n}",
+    "richtext":"<b>This is a bold headline</b><br /><br /><ol><li><span style=\"line-height: 1.2309998732346754;\">here </span></li><li><span style=\"line-height: 1.2309998732346754;\">comes </span></li><li><span style=\"line-height: 1.2309998732346754;\">a </span></li><li><span style=\"line-height: 1.2309998732346754;\">list </span><br /></li></ol><div><br /> <br /></div>",
+  	"primitive_map": {
 		"one": "eins",
 		"two": "zwei",
 		"three": "drei"

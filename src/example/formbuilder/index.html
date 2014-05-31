@@ -17,6 +17,7 @@
             isDebug: true
         }
     </script>
+    <script type="text/javascript" src="../dojoConfig.js"></script>
     <script type="text/javascript" src="../../../dojo/dojo.js"></script>
     <script type="text/javascript" src="../../../gform/gform.js"></script>
 
@@ -24,7 +25,7 @@
     <script type="text/javascript">
 
         require([
-            './SchemaGenerator',
+            'gform/schema/SchemaGenerator',
             'dojo/_base/url',
             'gform/schema/transform',
             'dojo/when',
@@ -41,13 +42,14 @@
             "gform/Context",
             "app/example/formbuilder/SingleStoreRegistry",
             "app/example/formbuilder/SingleSchemaRegistry",
-            "gform/registerLayoutEditorFactory",
+            "gform/createFullEditorFactory",
             "dijit/layout/BorderContainer",
             "dijit/layout/ContentPane",
             "gform/Editor",
             "dijit/form/Button",
             "dijit/Dialog"
-        ], function (SchemaGenerator, url, transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry) {
+        ], function (SchemaGenerator, url, transform, when, Resolver, aspect, registry, parser, refresolve, stateCollection, schema, group, Store, SingleEditorDialogOpener, Context, SingleStoreRegistry, SingleSchemaRegistry, createEditorFactory) {
+            window.editorFactory=createEditorFactory();
             parser.parse();
             try {
                 var ctx = new Context();
@@ -127,10 +129,10 @@
     </div>
     <div id="container" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center',id:'container'"
          style="height:100%">
-        <div data-dojo-type="gform/Editor" data-dojo-props="id:'form',editorFactory:gform.ef.layout"></div>
+        <div data-dojo-type="gform/Editor" data-dojo-props="id:'form',editorFactory:editorFactory"></div>
     </div>
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right',splitter:true" style="width:40%">
-        <div data-dojo-type="gform/Editor" data-dojo-props="id:'resultForm',editorFactory:gform.ef.layout"></div>
+        <div data-dojo-type="gform/Editor" data-dojo-props="id:'resultForm',editorFactory:editorFactory"></div>
     </div>
 </div>
 <div id="exportDialog" data-dojo-type="dijit/Dialog" style="width: 600px;height:400px"
